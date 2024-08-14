@@ -1,0 +1,10 @@
+venv/
+addendum/
+__pycache__/
+*.pyc
+*~
+.DS_Store
+.idea
+build_exe/
+dist/
+log/

@@ -8,7 +8,9 @@ from pystray import MenuItem as item
 from PIL import Image
 from queue import Queue
 
+# pyinstaller -F --paths=C:\Projects\BarcodeReaderLogGUI\.venv\Lib\site-packages C:\Projects\BarcodeReaderLogGUI\BarcodeReaderLogGUI.py --noconsole
 
+# python setup.py build
 class BarcodeReaderApp(ctk.CTk):
 
     def __init__(self):
@@ -103,7 +105,7 @@ class BarcodeReaderApp(ctk.CTk):
         while not self.stop_thread:
             try:
                 # reader
-                with open('log\\readerLog.txt', 'r') as file:
+                with open('C:\\cpi\\barcode\\log\\readerLog.txt', 'r') as file:
                     file.seek(last_position_reader)
                     new_data = file.read()
                     last_position_reader = file.tell()
@@ -126,7 +128,7 @@ class BarcodeReaderApp(ctk.CTk):
 
             # aoi
             try:
-                with open('log\\AOILog.txt', 'r') as file:
+                with open('C:\\cpi\\barcode\\log\\AOILog.txt', 'r') as file:
                     file.seek(last_position_aoi)
                     new_data = file.read()
                     last_position_aoi = file.tell()
@@ -149,7 +151,7 @@ class BarcodeReaderApp(ctk.CTk):
 
             # vvts
             try:
-                with open('log\\VVTSLog.txt', 'r') as file:
+                with open('C:\\cpi\\barcode\\log\\VVTSLog.txt', 'r') as file:
                     file.seek(last_position_vvts)
                     new_data = file.read()
                     last_position_vvts = file.tell()
@@ -173,7 +175,7 @@ class BarcodeReaderApp(ctk.CTk):
 
             # prog
             try:
-                with open('log\\progLog.txt', 'r') as file:
+                with open('C:\\cpi\\barcode\\log\\progLog.txt', 'r') as file:
                     file.seek(last_position_prog)
                     new_data = file.read()
                     last_position_prog = file.tell()
