@@ -17,7 +17,7 @@ class BarcodeReaderApp(ctk.CTk):
         super().__init__()
         self._set_appearance_mode("dark")
         self.title("Barcode Reader")
-        self.geometry("725x580")
+        self.geometry("725x460")
         self.configure(bg="#252525")
         self.iconbitmap("C:\\cpi\\barcode\\img\\logo.ico")
         self.resizable(0, 0)
@@ -57,7 +57,7 @@ class BarcodeReaderApp(ctk.CTk):
         self.text_area_prog = ctk.CTkTextbox(self, width=650, height=25, wrap="word")
         self.text_area_prog.grid(row=1, column=0, columnspan=3, pady=10, padx=20, sticky="w")
 
-        self.label_reader = ctk.CTkLabel(self, text="Reader:", fg_color="#252525", text_color="#FFFFFF")
+        self.label_reader = ctk.CTkLabel(self, text="Reader: ", fg_color="#252525", text_color="#FFFFFF")
         self.label_reader.grid(row=2, column=0, pady=10, padx=95, sticky="w")  # Aligning to the left
 
         # Reader Text Area
@@ -73,14 +73,14 @@ class BarcodeReaderApp(ctk.CTk):
         self.text_area_aoi.grid(row=3, column=1, pady=10, padx=20, sticky="w")
 
         # VVTS Label
-        self.label_vvts = ctk.CTkLabel(self, text="VVTS:", fg_color="#252525", text_color="#FFFFFF")
+        self.label_vvts = ctk.CTkLabel(self, text="VVTS: ", fg_color="#252525", text_color="#FFFFFF")
         self.label_vvts.grid(row=2, column=2, pady=10, padx=95, sticky="w")  # Aligning to the left
 
         # VVTS Text Area
         self.text_area_vvts = ctk.CTkTextbox(self, width=200, height=250, wrap="word")
         self.text_area_vvts.grid(row=3, column=2, pady=10, padx=20, sticky="w")
 
-        self.label_process_status = ctk.CTkLabel(self, text="Process Status: Checking...", fg_color="#252525",
+        self.label_process_status = ctk.CTkLabel(self, text="Process Status: Checking... ", fg_color="#252525",
                                                  text_color="#FFFFFF")
         self.label_process_status.grid(row=4, column=0, columnspan=3, pady=10, padx=55, sticky="w")
 
@@ -196,10 +196,10 @@ class BarcodeReaderApp(ctk.CTk):
             process_running = any(proc.name() == process_name for proc in psutil.process_iter())
             if process_running:
                 self.queue.put(
-                    lambda: self.label_process_status.configure(text="Process Status: Running", text_color="green"))
+                    lambda: self.label_process_status.configure(text="Process Status: Running ", text_color="green"))
             else:
                 self.queue.put(
-                    lambda: self.label_process_status.configure(text="Process Status: Not Running", text_color="red"))
+                    lambda: self.label_process_status.configure(text="Process Status: Not Running ", text_color="red"))
             time.sleep(5)
 
     def restart_process(self):
